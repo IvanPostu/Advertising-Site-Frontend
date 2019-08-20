@@ -1,0 +1,51 @@
+{
+  "breadcrumbs.enabled": true,
+  "debug.toolBarLocation": "floating",
+  "editor.autoIndent": true,
+  "editor.codeLens": false,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "line",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "editor.letterSpacing": 0.2,
+  "editor.lineHeight": 17,
+  "editor.minimap.enabled": false,
+  // "files.autoSave": "afterDelay",
+  // "files.autoSaveDelay": 1100,
+  "search.showLineNumbers": true,
+  "workbench.colorCustomizations": {},
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#7a9179",
+        }
+      },
+      {
+        "scope": "string.quoted.single",
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#28ad75",
+        }
+      },
+      {
+        "scope": "string.quoted.double",
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#64d131",
+        }
+      },
+    ]
+  },
+  "files.exclude": {
+    "node_modules/": true,
+  }
+}
