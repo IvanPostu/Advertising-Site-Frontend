@@ -2,7 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CssNameOptimizer = require('./css-name-optimizer')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack')
 
 const cssNameOptimizer = new CssNameOptimizer()
 
@@ -12,11 +14,20 @@ module.exports = (env, options) => {
     console.log()
 
     return {
-        entry: './src/main/index.js',
+        entry: isDev ? [
+            'react-dev-utils/webpackHotDevClient',
+            './src/main/index.js'
+        ] : ['./src/main/index.js'],
         output: {
             path: path.join(__dirname, './build'),
-            filename: 'index_bundle.js'
+            filename: '[name].[contenthash].js'
         },
+        devtool: isDev ? 'inline-source-map' : '',
+        devServer: isDev ? {
+            contentBase: "/build/client",
+            overlay: true,
+            // host: '192.168.1.5',
+        } : {},
         module: {
             rules: [
                 {
@@ -44,10 +55,6 @@ module.exports = (env, options) => {
                                         } :
                                         {
                                             getLocalIdent: (context, localIdentName, localName) => {
-                                                // const a = CssClassNameOptimizer1.optimizeOneStr(localName)
-                                                // const b = CssClassNameOptimizer2.optimizeOneStr(context.resourcePath)
-                                                // const separator = Math.floor(Math.random() * 10).toString();
-                                                // return a + separator + b;
                                                 const inputStr = context.resourcePath + "_" + localName
                                                 return cssNameOptimizer.optimizeOneStr(inputStr)
                                             },
@@ -61,18 +68,6 @@ module.exports = (env, options) => {
                         },
                     ]
                 },
-                // {
-                //     test: /\.css$/,
-                //     use: [
-                //         "style-loader",
-                //         {
-                //             loader: "css-loader",
-                //             options: {
-                //                 modules: true
-                //             }
-                //         }
-                //     ]
-                // },
             ]
         },
         plugins: [
@@ -80,23 +75,29 @@ module.exports = (env, options) => {
                 template: './src/main/index.html',
                 filename: 'index.html',
             }),
-            new MiniCssExtractPlugin({
-                filename: isDev ? '[name].css' : '[name].[hash].css',
-                chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
-            }),
+            new CleanWebpackPlugin(),
+            new webpack.HashedModuleIdsPlugin(),
+            ...(isDev ? [] : [
+                new OptimizeCssAssetsPlugin({}),
+                new MiniCssExtractPlugin({
+                    filename: isDev ? '[name].css' : '[name].[hash].css',
+                    chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
+                }),
+            ]),
         ],
-        // optimization: {
-        //     splitChunks: {
-        //         cacheGroups: {
-        //             commons: {
-        //                 test: /[\\/]node_modules[\\/]/,
-        //                 name: 'vendors',
-        //                 chunks: 'all'
-        //             }
-        //         }
-        //     }
+        optimization: {
+            runtimeChunk: 'single',
+            splitChunks: {
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendors',
+                        chunks: 'all'
+                    }
+                }
+            }
 
-        // }
+        }
 
 
     }
