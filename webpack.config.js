@@ -20,7 +20,7 @@ module.exports = (env, options) => {
         ] : ['./src/main/index.js'],
         output: {
             path: path.join(__dirname, './build'),
-            filename: '[name].[contenthash].js'
+            filename: isDev ? '[name].dev.js' : '[name].[contenthash].js'
         },
         devtool: isDev ? 'inline-source-map' : '',
         devServer: isDev ? {
@@ -74,18 +74,20 @@ module.exports = (env, options) => {
             new HtmlWebpackPlugin({
                 template: './src/main/index.html',
                 filename: 'index.html',
+                favicon: './favicon.ico'
             }),
-            new CleanWebpackPlugin(),
-            new webpack.HashedModuleIdsPlugin(),
+
             ...(isDev ? [] : [
                 new OptimizeCssAssetsPlugin({}),
                 new MiniCssExtractPlugin({
                     filename: isDev ? '[name].css' : '[name].[hash].css',
                     chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
                 }),
+                new CleanWebpackPlugin(),
+                new webpack.HashedModuleIdsPlugin(),
             ]),
         ],
-        optimization: {
+        optimization: isDev ? {} : {
             runtimeChunk: 'single',
             splitChunks: {
                 cacheGroups: {

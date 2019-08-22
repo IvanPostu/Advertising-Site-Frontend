@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --mode development --hot --open",
+    "dev": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode production"
   },
   "author": "Postu Ivan",
@@ -25,6 +25,7 @@
     "react": "^16.9.0",
     "react-dev-utils": "^9.0.3",
     "react-dom": "^16.9.0",
+    "react-transition-group": "^4.2.2",
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2",
