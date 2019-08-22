@@ -1,0 +1,61 @@
+.squareBtn {
+  left: 15px;
+  top: 5px;
+  position: relative;
+  float: left;
+  display: none;
+}
+
+.DdownMenuMin {
+  overflow-y: auto;
+  top: 40px;
+  position: fixed;
+  min-width: 50px;
+  height: 100vh;
+  background-color: #273c75;
+  text-align: center;
+  padding: 0px 0;
+  display: none;
+  box-shadow: 2px 1px 12px 2px rgba(56, 66, 207, 0.363);
+}
+
+.aClass {
+  top: 7px;
+  color: rgb(246, 246, 248);
+  padding: 0 12px;
+  position: relative;
+  filter: drop-shadow(3px 2px 1px rgb(49, 49, 94));
+  float: left;
+  font-family: Arial Narrow, sans-serif;
+  font-variant: normal;
+  font-style: oblique;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.aClass:hover {
+  color: rgb(207, 207, 223);
+}
+
+@media screen and (max-width: 800px) {
+  .squareBtn {
+    display: block;
+  }
+
+  .DdownMenuMax {
+    display: none;
+  }
+
+  .DdownMenuMin {
+    display: block;
+  }
+
+  .aClass {
+    display: block;
+    padding: 5px 22px;
+    font-size: 16px;
+    float: none;
+  }
+}

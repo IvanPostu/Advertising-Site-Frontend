@@ -1,0 +1,14 @@
+.block {
+  width: 1200px;
+  background-color: transparent;
+  position: relative;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and(max-width:1200px) {
+  .block {
+    width: 100%;
+  }
+}
