@@ -2,6 +2,7 @@ import React from 'react'
 import style from './BaseLayout.module.scss'
 import gStyle from '../../../main/index.global.scss'
 import { MainMenuStateless as MainMenu } from './MainMenu'
+import { AccountMenuStateless as AccountMenu } from './AccountMenu'
 
 export default function BaseLayoutStateless() {
 
@@ -12,6 +13,7 @@ export default function BaseLayoutStateless() {
                 <div className={gStyle.block}>
 
                     <MainMenu />
+                    <AccountMenu />
 
                 </div>
             </div>
