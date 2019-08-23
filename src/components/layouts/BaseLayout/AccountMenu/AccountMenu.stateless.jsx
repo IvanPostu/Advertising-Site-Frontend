@@ -10,10 +10,11 @@ export default function AccountMenuStateless() {
         <div>
             <a className={style.AbtnBase} onClick={() => { setVisible(!visible) }}>
                 Авторизация
-                <svg style={{ backgroundColor: 'none', transform: 'rotate(180deg)' }}
-                    width="40" height="12">
+                <svg
+                    style={{ marginLeft: '3px' }}
+                    width="14" height="12">
                     <path
-                        d="M 22,20 L 30,7 L 38,20 z"
+                        d="M 4,0 L 7,5 L 10,0 z"
                         fill="#f6f6f8"
                         stroke="#f6f6f8"
                         strokeWidth="6" />

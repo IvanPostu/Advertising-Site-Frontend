@@ -1,18 +1,20 @@
 .AbtnBase {
   top: 7px;
-  color: #f6f6f8;
+  color: rgb(246, 246, 248);
   padding: 0 12px;
   position: relative;
   float: right;
 
   transition: 0.2s;
-  filter: drop-shadow(3px 2px 1px rgba(12, 12, 82, 0.5));
+  filter: drop-shadow(3px 2px 1px rgb(49, 49, 94));
   font-family: Arial Narrow, sans-serif;
   font-variant: normal;
   font-style: oblique;
   font-weight: bold;
   text-decoration: none;
   font-size: 18px;
+
+  right: 25px;
 }
 
 .AbtnBase:hover {
