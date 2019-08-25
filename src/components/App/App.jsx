@@ -1,12 +1,16 @@
 import React from 'react'
-import { BaseLayoutStatefull as BaseLayout } from '../layouts/BaseLayout'
 
+import { IndexStatefull } from '../Pages/Home/Index'
+
+import AppRouter from './AppRouter.jsx'
 
 export default function App() {
-    return (
-        <div >
-            <BaseLayout />
-            <p>Hello</p>
-        </div>
-    )
+    return <AppRouter />
+
+    // (
+    //     <div >
+    //         <BaseLayout />
+    //         <IndexStatefull />
+    //     </div>
+    // )
 }

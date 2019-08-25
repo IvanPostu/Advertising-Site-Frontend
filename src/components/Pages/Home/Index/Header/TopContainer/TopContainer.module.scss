@@ -1,0 +1,104 @@
+$logoImg: url("../../../../../../assets/images/logo111.png");
+
+#base_container_head {
+  z-index: 1;
+  $bRadius: 10px;
+  height: 110px;
+  width: 1200px;
+  border-top-left-radius: $bRadius;
+  border-top-right-radius: $bRadius;
+  margin-top: 20px;
+  position: absolute;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: stretch;
+  background: linear-gradient(90deg, rgba(149, 204, 224, 0.6), rgba(156, 153, 254, 0.9));
+}
+@media (max-width: 1200px) {
+  #base_container_head {
+    width: 98vw;
+    height: 9.8vw;
+  }
+}
+
+.logoContainer {
+  width: 100px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.logoContainer:nth-child(1) {
+  background: $logoImg no-repeat;
+  background-size: 100% 100%;
+  flex-grow: 2;
+}
+
+.logoContainer:last-child {
+  border-top-right-radius: 10px;
+  flex-grow: 8;
+}
+
+@media (max-width: 800px) {
+  .logoContainer:nth-child(1) {
+    flex-grow: 1;
+  }
+
+  .logoContainer:last-child {
+    flex-grow: 11;
+  }
+  @media (max-width: 500px) {
+    .logoContainer:nth-child(1) {
+      width: 50px;
+      flex-grow: 1;
+    }
+
+    .logoContainer:last-child {
+      flex-grow: 17;
+    }
+  }
+}
+
+.logoContainer:last-child > .btn01 {
+  border-left: 1px solid rgb(78, 78, 78);
+  font-weight: 600;
+  font-size: 22px;
+  transition: 0.3s;
+  background: transparent;
+  width: 30%;
+  height: 100%;
+  color: rgb(240, 249, 255);
+}
+
+.logoContainer:last-child > .btn01:last-child {
+  border-right: 1px solid rgb(78, 78, 78);
+}
+
+.logoContainer:last-child > .btn01:hover {
+  background: rgb(133, 180, 197);
+}
+
+@media (max-width: 800px) {
+  .logoContainer:last-child > .btn01 {
+    font-size: 16px;
+  }
+  @media (max-width: 600px) {
+    .logoContainer:last-child > .btn01 {
+      font-size: 12px;
+      font-weight: 100;
+      padding: 0;
+      margin: 0;
+    }
+    @media (max-width: 500px) {
+      .logoContainer:last-child > .btn01 {
+        font-size: 10px;
+      }
+      @media (max-width: 400px) {
+        .logoContainer:last-child > .btn01 {
+          font-size: 8px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

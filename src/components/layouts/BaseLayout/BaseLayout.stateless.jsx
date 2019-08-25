@@ -7,7 +7,7 @@ import { AccountMenuStateless as AccountMenu } from './AccountMenu'
 export default function BaseLayoutStateless() {
 
     return (
-        <div>
+        <div className={gStyle.noselect}>
             <div className={style.topBlockInvisible}></div>
             <div className={style.topBlockVisible}>
                 <div className={gStyle.block}>

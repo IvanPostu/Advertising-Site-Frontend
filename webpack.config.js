@@ -20,13 +20,14 @@ module.exports = (env, options) => {
         ] : ['./src/main/index.js'],
         output: {
             path: path.join(__dirname, './build'),
-            filename: isDev ? '[name].dev.js' : '[name].[contenthash].js'
+            filename: isDev ? '[name].dev.js' : '[name].[contenthash].js',
+            chunkFilename: '[name]_[chunkhash].js',
         },
         devtool: isDev ? 'inline-source-map' : '',
         devServer: isDev ? {
             contentBase: "/build/client",
             overlay: true,
-            // host: '192.168.1.5',
+            host: '192.168.1.5',
         } : {},
         module: {
             rules: [
@@ -68,6 +69,21 @@ module.exports = (env, options) => {
                         },
                     ]
                 },
+                {
+                    test: /\.(png|jpe?g|gif|ico)$/i,
+                    exclude: /node_modules/,
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: 'images',
+                        name(file) {
+                            if (isDev) {
+                                return '[path][name].[ext]';
+                            }
+
+                            return '[contenthash].[ext]';
+                        },
+                    },
+                },
             ]
         },
         plugins: [
@@ -80,14 +96,14 @@ module.exports = (env, options) => {
             ...(isDev ? [] : [
                 new OptimizeCssAssetsPlugin({}),
                 new MiniCssExtractPlugin({
-                    filename: isDev ? '[name].css' : '[name].[hash].css',
-                    chunkFilename: isDev ? '[id].css' : '[id].[hash].css',
+                    filename: isDev ? '[name].css' : '[name].[contenthash].css',
+                    chunkFilename: isDev ? '[id].css' : '[id].[contenthash].css',
                 }),
                 new CleanWebpackPlugin(),
                 new webpack.HashedModuleIdsPlugin(),
             ]),
         ],
-        optimization: isDev ? {} : {
+        optimization: {
             runtimeChunk: 'single',
             splitChunks: {
                 cacheGroups: {

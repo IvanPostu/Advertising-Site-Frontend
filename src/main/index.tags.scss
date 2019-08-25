@@ -2,6 +2,7 @@ body {
   background-color: rgb(218, 234, 238);
   margin: 0;
   padding: 0;
+  min-width: 240px;
 }
 
 ul {
@@ -10,4 +11,13 @@ ul {
 
 a {
   cursor: pointer;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  float: left;
 }

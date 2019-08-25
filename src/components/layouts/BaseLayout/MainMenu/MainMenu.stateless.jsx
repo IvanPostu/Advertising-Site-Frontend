@@ -1,7 +1,9 @@
 import React from 'react'
 import { CSSTransition } from 'react-transition-group'
+import { Link } from 'react-router-dom'
 import style from './MainMenu.module.scss'
 import animation from './MainMenu.animation.scss'
+
 
 export default function MainMenuStateless() {
 
@@ -52,12 +54,16 @@ const MainMenuButton = (props) => (
 
 const Links = () => (
     <div>
-        <a className={style.aClass} >Главная</a>
-        <a className={style.aClass} >Личный кабинет</a>
-        <a className={style.aClass} >О нас</a>
+        <Link className={style.aClass} to={"/home/index"} >Главная</Link>
+        <Link className={style.aClass} to={"/home/about"} >О нас</Link>
+
+        {/* <a className={style.aClass} >Главная</a>
+        <a className={style.aClass} >О нас</a> */}
         <a className={style.aClass} >Советы</a>
         <a className={style.aClass} >Контакты</a>
         <a className={style.aClass} >Услуги</a>
+        <a className={style.aClass} >Личный кабинет</a>
+
     </div>
 )
 

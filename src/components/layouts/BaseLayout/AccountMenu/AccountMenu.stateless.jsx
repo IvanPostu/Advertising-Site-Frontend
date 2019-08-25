@@ -2,13 +2,42 @@ import React from 'react'
 import style from './AccountMenu.module.scss'
 import { Transition } from 'react-transition-group';
 
+export default React.memo(AccountMenuStateless)
 
-export default function AccountMenuStateless() {
+function AccountMenuStateless() {
     const [visible, setVisible] = React.useState(false)
+
+    const [test, setTest] = React.useState({ val: true })//delete this
+
+    React.useEffect(() => {
+
+        const interval = setInterval(() => {
+            setTest(a => {
+                let b = a
+                b.val = !b.val
+                return b
+            })
+            console.log(test.val)
+        }, 500)
+        // function test() {
+        //     alert(1)
+        // }
+
+        // document.getElementById('root').addEventListener('click', test)
+
+        // return () => {
+
+        // }
+
+    }, [])
+
+
+    console.log('rendered!')
 
     return (
         <div>
-            <a className={style.AbtnBase} onClick={() => { setVisible(!visible) }}>
+            {/* <a className={style.AbtnBase} onClick={() => { setVisible(!visible) }}> */}
+            <a className={style.AbtnBase} >
                 Авторизация
                 <svg
                     style={{ marginLeft: '3px' }}
@@ -24,7 +53,7 @@ export default function AccountMenuStateless() {
             <Fade in={visible} />
 
 
-        </div>
+        </div >
     )
 }
 

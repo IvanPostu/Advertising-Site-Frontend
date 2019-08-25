@@ -4,6 +4,7 @@
   height: 40px;
   width: 100%;
   top: 0px;
+  z-index: 1;
 }
 
 .topBlockInvisible {
@@ -15,7 +16,7 @@
   0% {
     transform: translateY(-100%);
   }
-  75% {
+  10% {
     transform: translateY(-100%);
   }
   100% {
@@ -27,5 +28,6 @@
   @extend .topBlock;
   position: fixed;
   background: linear-gradient(60deg, rgb(5, 55, 125), rgb(20, 95, 165));
+
   @include animation("move-down 2s 1");
 }
