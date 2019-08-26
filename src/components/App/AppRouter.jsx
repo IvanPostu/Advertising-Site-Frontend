@@ -11,13 +11,14 @@ export default class AppRouter extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = { a: true }
     }
 
     render() {
         return (
             <Router>
-                {true && <BaseLayout />}
-
+                {this.state.a && <BaseLayout />}
+                {/* <button style={{ zIndex: '10' }} onClick={() => { this.setState({ a: !this.state.a }) }}>AAA</button> */}
 
                 <Route exact path="/" render={() => (<Redirect to="/home/index" />)} />
                 <Route path="/home/index" component={Index} />

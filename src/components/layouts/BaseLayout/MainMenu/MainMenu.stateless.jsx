@@ -4,13 +4,40 @@ import { Link } from 'react-router-dom'
 import style from './MainMenu.module.scss'
 import animation from './MainMenu.animation.scss'
 
+export default React.memo(MainMenuStateless)
 
-export default function MainMenuStateless() {
+function MainMenuStateless() {
 
     const [menuIsVisible, setMenuVisible] = React.useState(false)
 
+    /////////////////////// Logic for event click extern \\\\\\\\\\\\\\\\\\\\\\\\\\\
+    const [mouseIn, setMouseIn] = React.useState({ val: false })//object used for mutations (not invoke render)
+    const clickExternCheck = () => {
+        if (!mouseIn.val) setMenuVisible(false)
+    }
+    React.useEffect(() => {
+        document.getElementsByTagName('body')[0].addEventListener('click', clickExternCheck)
+        return () => document.getElementsByTagName('body')[0].removeEventListener('click', clickExternCheck)
+    }, [])
+    const onMouseEnter = () => {
+        setMouseIn(a => {
+            const b = a
+            b.val = true
+            return b
+        })
+    }
+    const onMouseLeave = () => {
+        setMouseIn(a => {
+            const b = a
+            b.val = false
+            return b
+        })
+    }
+    //////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
     return (
-        <div>
+        <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <MainMenuButton handleClick={() => { setMenuVisible(!menuIsVisible) }} />
 
             <div className={style.DdownMenuMax}>
@@ -57,8 +84,7 @@ const Links = () => (
         <Link className={style.aClass} to={"/home/index"} >Главная</Link>
         <Link className={style.aClass} to={"/home/about"} >О нас</Link>
 
-        {/* <a className={style.aClass} >Главная</a>
-        <a className={style.aClass} >О нас</a> */}
+
         <a className={style.aClass} >Советы</a>
         <a className={style.aClass} >Контакты</a>
         <a className={style.aClass} >Услуги</a>

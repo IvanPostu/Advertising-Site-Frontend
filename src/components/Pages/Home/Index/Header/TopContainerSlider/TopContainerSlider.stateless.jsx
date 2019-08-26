@@ -6,8 +6,8 @@ import img3 from '../../../../../../assets/testImgs/3.jpg'
 import img4 from '../../../../../../assets/testImgs/4.jpg'
 import img5 from '../../../../../../assets/testImgs/5.jpg'
 
-const selectedBar = 'red'
-const notSelectedBar = 'rgba(255, 255, 255, 0.6)'
+const selectedBar = 'blue'
+const notSelectedBar = 'rgba(255, 255, 255, 0.4)'
 
 export default function TopContainerSliderStateless() {
     const [margin, setMargin] = React.useState(0)
@@ -18,7 +18,7 @@ export default function TopContainerSliderStateless() {
         }, 3000)
 
         return () => clearInterval(interval)
-    }, [])
+    })
 
 
     return (
@@ -48,11 +48,11 @@ export default function TopContainerSliderStateless() {
 
 
             <div className={style.navigation}>
-                <div style={{ borderColor: margin === 0 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(0) }}></div>
-                <div style={{ borderColor: margin === -20 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-20) }}></div>
-                <div style={{ borderColor: margin === -40 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-40) }}></div>
-                <div style={{ borderColor: margin === -60 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-60) }}></div>
-                <div style={{ borderColor: margin === -80 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-80) }}></div>
+                <div style={{ backgroundColor: margin === 0 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(0) }}></div>
+                <div style={{ backgroundColor: margin === -20 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-20) }}></div>
+                <div style={{ backgroundColor: margin === -40 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-40) }}></div>
+                <div style={{ backgroundColor: margin === -60 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-60) }}></div>
+                <div style={{ backgroundColor: margin === -80 ? selectedBar : notSelectedBar }} className={style.bar} onClick={() => { setMargin(-80) }}></div>
             </div>
 
 

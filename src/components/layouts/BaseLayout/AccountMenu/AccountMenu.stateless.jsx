@@ -11,12 +11,11 @@ function AccountMenuStateless() {
     const [mouseIn, setMouseIn] = React.useState({ val: false })//object used for mutations (not invoke render)
     const clickExternCheck = () => {
         if (!mouseIn.val) setVisible(a => false)
+        //if a == false and set a false, do not call method render() beacuse using React.memo!!!
     }
     React.useEffect(() => {
         document.getElementsByTagName('body')[0].addEventListener('click', clickExternCheck)
         return () => document.getElementsByTagName('body')[0].removeEventListener('click', clickExternCheck)
-        // document.getElementById('root').addEventListener('click', clickExternCheck)
-        // return () => document.getElementById('root').removeEventListener('click', clickExternCheck)
     }, [])
     const onMouseEnter = () => {
         setMouseIn(a => {
@@ -33,7 +32,6 @@ function AccountMenuStateless() {
         })
     }
     //////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
 
     return (
         <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
