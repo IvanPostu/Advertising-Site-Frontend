@@ -1,0 +1,16 @@
+@import "../../../../../../mixins/BoxShadow.mixin.scss";
+@import "../../../../../../mixins//HorizontalGradient.mixin.scss";
+
+#sBar {
+  display: flex;
+  padding: 5px 0px;
+  position: relative;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 30px;
+  border-radius: 10px;
+  align-items: center;
+
+  @include box-shadow(-1px, -12px, 40px, 0px, rgba(84, 87, 92, 0.418), true);
+  @include horizontal-gradient(rgba(149, 204, 224, 0.6), rgba(146, 132, 226, 0.7));
+}

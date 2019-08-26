@@ -6,7 +6,7 @@ import img3 from '../../../../../../assets/testImgs/3.jpg'
 import img4 from '../../../../../../assets/testImgs/4.jpg'
 import img5 from '../../../../../../assets/testImgs/5.jpg'
 
-const selectedBar = 'blue'
+const selectedBar = 'rgb(130, 139, 219)'
 const notSelectedBar = 'rgba(255, 255, 255, 0.4)'
 
 export default function TopContainerSliderStateless() {
@@ -15,7 +15,7 @@ export default function TopContainerSliderStateless() {
     React.useEffect(() => {
         const interval = setInterval(() => {
             setMargin(a => a === -80 ? 0 : a - 20)
-        }, 3000)
+        }, 5500)
 
         return () => clearInterval(interval)
     })
@@ -26,21 +26,21 @@ export default function TopContainerSliderStateless() {
 
             <div className={style.slides}>
 
-                <div className={style.slide} id={style.s1} style={{ marginLeft: `${margin}%` }}>
+                <a className={style.slide} id={style.s1} style={{ marginLeft: `${margin}%` }}>
                     <img src={img1} alt="" />
-                </div>
-                <div className={style.slide}>
+                </a>
+                <a className={style.slide}>
                     <img src={img2} alt="" />
-                </div>
-                <div className={style.slide}>
+                </a>
+                <a className={style.slide}>
                     <img src={img3} alt="" />
-                </div>
-                <div className={style.slide}>
+                </a>
+                <a className={style.slide}>
                     <img src={img4} alt="" />
-                </div>
-                <div className={style.slide}>
+                </a>
+                <a className={style.slide}>
                     <img src={img5} alt="" />
-                </div>
+                </a>
 
 
 

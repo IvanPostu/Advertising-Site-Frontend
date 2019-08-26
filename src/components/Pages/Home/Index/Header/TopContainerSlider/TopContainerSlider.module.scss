@@ -1,7 +1,8 @@
 #sliderContainer {
   $bRadius: 10px;
-  border-top-left-radius: $bRadius;
-  border-top-right-radius: $bRadius;
+  border-radius: $bRadius;
+  // border-top-left-radius: $bRadius;
+  // border-top-right-radius: $bRadius;
   top: 20px;
   width: 1200px;
   height: 550px;

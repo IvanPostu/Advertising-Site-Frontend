@@ -1,0 +1,70 @@
+@import "../../../../../../../mixins/BoxShadow.mixin.scss";
+@import "../../../../../../../mixins//HorizontalGradient.mixin.scss";
+
+#categoryBtn {
+  @include horizontal-gradient(rgba(10, 143, 231, 0.8), rgba(108, 143, 238, 0.9));
+  @include box-shadow(-1px, -12px, 60px, -10px, rgba(84, 87, 92, 1), true);
+
+  border-radius: 5px;
+  padding: 0 5px;
+  width: 100%;
+  overflow: hidden;
+  height: 50px;
+  left: 5px;
+
+  text-shadow: 2px 2px 2px rgb(33, 14, 77);
+  font-family: Arial Narrow, sans-serif;
+  font-style: oblique;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(246, 246, 248);
+}
+
+#categoryBtn:hover {
+  @include horizontal-gradient(rgba(13, 124, 199, 0.8), rgba(96, 125, 202, 0.9));
+}
+
+#ddownMenu {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: 25px;
+  float: left;
+  max-width: 25%;
+  min-height: 200px;
+  background-color: rgb(204, 220, 223);
+  left: 5px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  @include box-shadow(-1px, -12px, 60px, -10px, rgba(84, 87, 92, 1), true);
+}
+
+@media (max-width: 500px) {
+  #ddownMenu {
+    max-width: 40%;
+  }
+  @media (max-width: 400px) {
+    #ddownMenu {
+      max-width: 60%;
+    }
+  }
+}
+
+.menuElement {
+  text-align: center;
+  position: relative;
+  float: left;
+  font-size: 18px;
+  width: 100%;
+  min-height: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(65, 65, 65, 0.2);
+  padding: 10px 0;
+  color: rgb(25, 13, 95);
+}
+
+.menuElement:hover {
+  background-color: rgba(215, 215, 255, 0.2);
+}
