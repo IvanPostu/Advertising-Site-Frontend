@@ -6,37 +6,37 @@ export default React.memo(AccountMenuStateless)
 
 function AccountMenuStateless() {
     const [visible, setVisible] = React.useState(false)
-    const [mouseIn, setMouseIn] = React.useState({ val: false })
 
+    /////////////////////// Logic for event click extern \\\\\\\\\\\\\\\\\\\\\\\\\\\
+    const [mouseIn, setMouseIn] = React.useState({ val: false })//object used for mutations (not invoke render)
     const clickExternCheck = () => {
         if (!mouseIn.val) setVisible(a => false)
     }
-
     React.useEffect(() => {
-
-        document.getElementById('root').addEventListener('click', clickExternCheck)
-
-
-        return () => document.getElementById('root').removeEventListener('click', clickExternCheck)
+        document.getElementsByTagName('body')[0].addEventListener('click', clickExternCheck)
+        return () => document.getElementsByTagName('body')[0].removeEventListener('click', clickExternCheck)
+        // document.getElementById('root').addEventListener('click', clickExternCheck)
+        // return () => document.getElementById('root').removeEventListener('click', clickExternCheck)
     }, [])
+    const onMouseEnter = () => {
+        setMouseIn(a => {
+            const b = a
+            b.val = true
+            return b
+        })
+    }
+    const onMouseLeave = () => {
+        setMouseIn(a => {
+            const b = a
+            b.val = false
+            return b
+        })
+    }
+    //////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-
-    console.log('rendered!')
 
     return (
-        <div onMouseEnter={() => {
-            setMouseIn(a => {
-                const b = a
-                b.val = true
-                return b
-            })
-        }} onMouseLeave={() => {
-            setMouseIn(a => {
-                const b = a
-                b.val = false
-                return b
-            })
-        }}>
+        <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 
             <a className={style.AbtnBase} onClick={() => { setVisible(!visible) }}>
                 Авторизация
@@ -57,13 +57,6 @@ function AccountMenuStateless() {
         </div >
     )
 }
-
-
-
-
-
-
-
 
 ////////////////////////////////// ANIMATION \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const duration = 300;

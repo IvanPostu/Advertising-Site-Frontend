@@ -6,14 +6,17 @@ import { AboutLoadable as About } from '../Pages/Home/About'
 
 
 
-export default class AppRouter extends React.Component {
 
+export default class AppRouter extends React.Component {
+    constructor(props) {
+        super(props)
+
+    }
 
     render() {
         return (
             <Router>
-                <BaseLayout />
-
+                {true && <BaseLayout />}
 
 
                 <Route exact path="/" render={() => (<Redirect to="/home/index" />)} />
