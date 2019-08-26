@@ -6,38 +6,39 @@ export default React.memo(AccountMenuStateless)
 
 function AccountMenuStateless() {
     const [visible, setVisible] = React.useState(false)
+    const [mouseIn, setMouseIn] = React.useState({ val: false })
 
-    const [test, setTest] = React.useState({ val: true })//delete this
+    const clickExternCheck = () => {
+        if (!mouseIn.val) setVisible(a => false)
+    }
 
     React.useEffect(() => {
 
-        const interval = setInterval(() => {
-            setTest(a => {
-                let b = a
-                b.val = !b.val
-                return b
-            })
-            console.log(test.val)
-        }, 500)
-        // function test() {
-        //     alert(1)
-        // }
+        document.getElementById('root').addEventListener('click', clickExternCheck)
 
-        // document.getElementById('root').addEventListener('click', test)
 
-        // return () => {
-
-        // }
-
+        return () => document.getElementById('root').removeEventListener('click', clickExternCheck)
     }, [])
 
 
     console.log('rendered!')
 
     return (
-        <div>
-            {/* <a className={style.AbtnBase} onClick={() => { setVisible(!visible) }}> */}
-            <a className={style.AbtnBase} >
+        <div onMouseEnter={() => {
+            setMouseIn(a => {
+                const b = a
+                b.val = true
+                return b
+            })
+        }} onMouseLeave={() => {
+            setMouseIn(a => {
+                const b = a
+                b.val = false
+                return b
+            })
+        }}>
+
+            <a className={style.AbtnBase} onClick={() => { setVisible(!visible) }}>
                 Авторизация
                 <svg
                     style={{ marginLeft: '3px' }}
@@ -58,6 +59,13 @@ function AccountMenuStateless() {
 }
 
 
+
+
+
+
+
+
+////////////////////////////////// ANIMATION \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const duration = 300;
 
 const defaultStyle = {
