@@ -1,5 +1,10 @@
 @import "../../../../../../../mixins/BoxShadow.mixin.scss";
 @import "../../../../../../../mixins//HorizontalGradient.mixin.scss";
+@import "../../../../../../../mixins/NoSelect.mixin.scss";
+
+#mainBody {
+  @include NoSelect();
+}
 
 #categoryBtn {
   @include horizontal-gradient(rgba(10, 143, 231, 0.8), rgba(108, 143, 238, 0.9));

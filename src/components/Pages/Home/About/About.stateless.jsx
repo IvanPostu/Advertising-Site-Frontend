@@ -1,9 +1,9 @@
 import React from 'react'
-import gStyle from '../../../../main/index.global.scss'
+import container from '../../../../mixins/properties/container.property.scss'
 
 export default function AboutStateless() {
     return (
-        <div className={gStyle.block}>
+        <div className={container.container}>
             <h3>About</h3>
         </div>
     )
