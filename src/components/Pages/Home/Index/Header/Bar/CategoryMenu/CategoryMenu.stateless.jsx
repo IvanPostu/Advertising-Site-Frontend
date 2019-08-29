@@ -2,7 +2,8 @@ import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import animation from './CategoryMenu.anim.scss'
 import style from './CategoryMenu.module.scss'
-
+import { MenuElement } from './MenuElement'
+import noSelectClass from '../../../../../../../mixins/properties/noselect.property.scss'
 
 export default React.memo(CategoryMenuStateless)
 
@@ -34,9 +35,9 @@ function CategoryMenuStateless() {
     }
     //////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-
+    // console.log(Math.floor(Math.random() * 10))
     return (
-        <span id={style.mainBody} style={{ minWidth: '25%' }} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <span id={style.mainBody} className={noSelectClass.noselect} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <button onClick={() => { setMenuVisible(a => !a) }} id={style.categoryBtn}>
                 Категории
 
@@ -53,19 +54,27 @@ function CategoryMenuStateless() {
 
             <CSSTransition in={menuVisible} classNames={animation} timeout={200} unmountOnExit>
                 <div id={style.ddownMenu}>
-                    <a className={style.menuElement}>Транспорт </a>
-                    <a className={style.menuElement}>Недвижимость</a>
-                    <a className={style.menuElement}>Телефоны и связь</a>
-                    <a className={style.menuElement}>Компьютеры и оргтехника</a>
-                    <a className={style.menuElement}>Строительство и ремонт</a>
-                    <a className={style.menuElement}>Одежда, обувь и аксессуары</a>
-                    <a className={style.menuElement}>Мебель и интерьер</a>
-                    <a className={style.menuElement}>Аудио-Видео-Фото</a>
-                    <a className={style.menuElement}>Все остальное</a>
-                    <a className={style.menuElement}>Все для торжеств</a>
-                    <a className={style.menuElement}>Бытовая техника</a>
-                    <a className={style.menuElement}>Работа</a>
-                    <a className={style.menuElement}>Услуги</a>
+                    <MenuElement
+                        parent={'Транспорт'}
+                        subMenu={['Легковые автомобили',
+                            'Автобусы и микроавтобусы',
+                            'Грузовые автомобили',
+                            'Мотоциклы и мототехника',
+                            'Гиперскутеры, электросамокаты']}
+                    />
+
+                    <MenuElement parent={'Недвижимость'} />
+                    <MenuElement parent={'Телефоны и связь'} />
+                    <MenuElement parent={'Компьютеры и оргтехника'} />
+                    <MenuElement parent={'Строительство и ремонт'} />
+                    <MenuElement parent={'Одежда, обувь и аксессуары'} />
+                    <MenuElement parent={'Мебель и интерьер'} />
+                    <MenuElement parent={'Аудио-Видео-Фото'} />
+                    <MenuElement parent={'Все остальное'} />
+                    <MenuElement parent={'Все для торжеств'} />
+                    <MenuElement parent={'Бытовая техника'} />
+                    <MenuElement parent={'Работа'} />
+                    <MenuElement parent={'Услуги'} />
                 </div>
             </CSSTransition>
 

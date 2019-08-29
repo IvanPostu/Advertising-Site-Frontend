@@ -1,0 +1,56 @@
+@import "../../../../../../../mixins/HorizontalGradient.mixin.scss";
+@import "../../../../../../../mixins/BoxShadow.mixin.scss";
+
+#searchBoxContainer {
+  // background-color: greenyellow;
+  position: relative;
+  display: flex;
+  width: 30%;
+  min-width: 115px;
+  height: 45px;
+  margin-left: 10px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+#searchInput {
+  width: 88%;
+  height: 65%;
+  border-radius: 4px;
+  min-width: 75px;
+  border: 2px solid rgb(184, 184, 184);
+  outline: none;
+}
+
+#searchInput:focus {
+  border: 1px solid rgb(85, 85, 85);
+  background-color: rgb(230, 255, 250);
+}
+
+#btnFind {
+  color: white;
+  text-shadow: 2px 2px 2px rgba(33, 14, 77, 0.64);
+  @include horizontal-gradient(rgba(10, 143, 231, 0.8), rgba(108, 143, 238, 0.9));
+  @include box-shadow(-1px, -12px, 60px, -10px, rgb(92, 131, 196), true);
+  margin-left: 5px;
+  height: 65%;
+  padding: 0;
+  width: 55px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+@media (max-width: 400px) {
+  #btnFind {
+    font-weight: 100;
+    font-size: 12px;
+    margin-left: 0px;
+    padding: 0px 2px;
+  }
+  #searchBoxContainer {
+    margin-left: 10px;
+  }
+}
+
+#btnFind:hover {
+  @include horizontal-gradient(rgba(8, 71, 207, 0.8), rgba(82, 117, 212, 0.9));
+}

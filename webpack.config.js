@@ -27,7 +27,7 @@ module.exports = (env, options) => {
         devServer: isDev ? {
             contentBase: "/build/client",
             overlay: true,
-            host: '192.168.1.5',
+            // host: '192.168.1.5',
         } : {},
         module: {
             rules: [
