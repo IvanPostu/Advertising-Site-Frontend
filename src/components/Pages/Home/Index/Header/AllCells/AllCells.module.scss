@@ -1,4 +1,9 @@
 @import "../../../../../../mixins/BoxShadow.mixin.scss";
+@import "../../../../../../mixins/VerticalGradient.mixin.scss";
+@import "../../../../../../mixins/Transform.mixin.scss";
+
+$cellWidth: 240px;
+$cellHeight: 210px;
 
 #allCellsContainer {
   display: flex;
@@ -6,16 +11,24 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .oneCell {
   @include box-shadow(0px, 2px, 13px, 2px, rgba(0, 0, 0, 0.45));
   border-style: ridge;
-  border: 4px red;
-  border-radius: 8px;
-  width: 240px;
+  border: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: $cellWidth;
   margin: 15px;
-  height: 210px;
+  height: $cellHeight;
+  transition: 0.3s;
+}
+
+.oneCell:hover {
+  @include transform(scale(1.1, 1.1));
+  cursor: pointer;
 }
 
 @media (min-width: 1200px) {
@@ -25,9 +38,15 @@
 }
 
 .contentBox {
-  float: left;
-  position: fixed;
-  width: 30px;
+  text-align: center;
+  position: absolute;
+  width: $cellWidth;
   height: 50px;
-  background-color: rgba(0, 0, 0, 0.45);
+  color: white;
+  @include gradient-vertical(rgba(44, 44, 44, 0.55), rgba(22, 22, 22, 0.2));
+}
+
+.contentBox > p {
+  font-family: Bookman, URW Bookman L, serif;
+  font-weight: 600;
 }

@@ -1,5 +1,6 @@
 {
-  "path-intellisense.extensionOnImport": true,
+  // "path-intellisense.extensionOnImport": true,
+  "path-autocomplete.extensionOnImport": true,
   "breadcrumbs.enabled": true,
   "debug.toolBarLocation": "floating",
   "editor.autoIndent": true,

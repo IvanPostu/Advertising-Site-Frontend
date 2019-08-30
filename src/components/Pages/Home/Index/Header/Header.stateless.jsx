@@ -2,7 +2,7 @@ import React from 'react'
 // import style from './Header.module.scss'
 import { TopContainerStatefull as TopContainer } from './TopContainer'
 import { TopContainerSliderStatefull as Slider } from './TopContainerSlider'
-import { BarStatefull as Bar } from './Bar'
+// import { BarStatefull as Bar } from './Bar'
 import { Cells } from './AllCells'
 
 export default function HeaderStateless() {
@@ -11,7 +11,7 @@ export default function HeaderStateless() {
             <TopContainer />
             <Slider />
             <Cells />
-            <Bar />
+            {/* <Bar /> */}
         </div>
 
     )
