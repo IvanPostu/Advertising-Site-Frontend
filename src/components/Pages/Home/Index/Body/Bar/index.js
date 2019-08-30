@@ -1,3 +1,5 @@
 import BarStatefull from './Bar.statefull.jsx'
 
-export { BarStatefull }
+const Bar = BarStatefull
+
+export { Bar }

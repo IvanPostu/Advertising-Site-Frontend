@@ -1,0 +1,61 @@
+@import "../../../../../../mixins/BoxShadow.mixin.scss";
+@import "../../../../../../mixins/Transform.mixin.scss";
+
+@mixin marginLeftAndMarginTop5px() {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+#barContentBody {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contentBox {
+  border-radius: 5px;
+  @include box-shadow(0px, 2px, 13px, 2px, rgba(0, 0, 0, 0.45));
+  margin: 10px;
+  max-width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.contentBox:hover {
+  @include transform(scale(1.05, 1.05));
+}
+
+.imgBox {
+  //   background-size: 100% 100%;
+  width: 85px;
+  height: 95px;
+  @include marginLeftAndMarginTop5px();
+}
+
+.priceBox {
+  background-color: darkgoldenrod;
+  width: 85px;
+  height: 40px;
+  @include marginLeftAndMarginTop5px();
+}
+
+.txtBox {
+  color: rgb(26, 10, 61);
+  font-family: Arial Narrow, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  height: 95px;
+  width: 150px;
+  @include marginLeftAndMarginTop5px();
+}
+
+.btnBox {
+  background-color: goldenrod;
+  height: 40px;
+  width: 150px;
+  @include marginLeftAndMarginTop5px();
+  margin-bottom: 5px;
+}

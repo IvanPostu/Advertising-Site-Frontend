@@ -1,10 +1,13 @@
 import React from 'react'
-import { BarStatefull as Bar } from './Bar'
+import { Bar } from './Bar'
+import { BarContent } from './BarContent'
+
 
 export default function BodyStateless() {
     return (
         <div>
             <Bar />
+            <BarContent />
 
         </div>
     )
