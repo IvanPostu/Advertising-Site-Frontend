@@ -1,9 +1,17 @@
 @import "../../../../../../mixins/BoxShadow.mixin.scss";
 @import "../../../../../../mixins/Transform.mixin.scss";
+// @import "../../../../../../mixins/HorizontalGradient.mixin.scss";
+@import "../../../../../../mixins/VerticalGradient.mixin.scss";
 
 @mixin marginLeftAndMarginTop5px() {
   margin-left: 5px;
   margin-top: 5px;
+}
+
+@mixin fontModule() {
+  color: rgb(26, 10, 61);
+  font-family: Arial Narrow, sans-serif;
+  font-weight: 600;
 }
 
 #barContentBody {
@@ -29,33 +37,53 @@
 }
 
 .imgBox {
-  //   background-size: 100% 100%;
   width: 85px;
   height: 95px;
   @include marginLeftAndMarginTop5px();
 }
 
 .priceBox {
-  background-color: darkgoldenrod;
+  @include fontModule();
+  font-size: 12px;
   width: 85px;
   height: 40px;
   @include marginLeftAndMarginTop5px();
 }
 
 .txtBox {
-  color: rgb(26, 10, 61);
-  font-family: Arial Narrow, sans-serif;
-  font-weight: 600;
+  @include fontModule();
   font-size: 14px;
   height: 95px;
   width: 150px;
   @include marginLeftAndMarginTop5px();
 }
 
-.btnBox {
-  background-color: goldenrod;
+.boxForBtn {
   height: 40px;
   width: 150px;
   @include marginLeftAndMarginTop5px();
   margin-bottom: 5px;
+}
+
+.btn {
+  @include gradient-vertical(rgb(167, 163, 224), rgb(145, 174, 219));
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  @include fontModule();
+  font-size: 16px;
+}
+
+#btnMoreItems {
+  width: 100%;
+  height: 30px;
+  @include gradient-vertical(rgb(176, 185, 236), rgb(163, 164, 231));
+  @include fontModule();
+  font-size: 16px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#btnMoreItems:hover {
+  background: rgb(176, 185, 236);
 }
