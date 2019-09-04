@@ -25,3 +25,17 @@
   justify-content: center;
   transition: 0.3s;
 }
+
+.footerBoxTitle {
+  text-align: center;
+  width: 100%;
+  min-height: 30px;
+}
+
+.footerBoxLink {
+  color: rgb(29, 29, 29);
+}
+
+.footerBoxLink:hover {
+  text-decoration: underline;
+}
