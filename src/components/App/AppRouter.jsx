@@ -1,8 +1,8 @@
 import React from 'react'
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import { BaseLayout } from '../layouts/BaseLayout'
-import { IndexLoadable as Index } from '../Pages/Home/Index'
-import { AboutLoadable as About } from '../Pages/Home/About'
+import { Index } from '../Pages/Home/Index'
+import { About } from '../Pages/Home/About'
 
 
 

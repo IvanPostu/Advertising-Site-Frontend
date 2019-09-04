@@ -1,0 +1,23 @@
+#aboutBody {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  // background: rgb(0, 238, 255);
+}
+
+#containerForArticles {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  min-height: 50px;
+  // background: yellow;
+}
+
+#leftContent {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-left: 4%;
+  min-height: 50px;
+  // background: yellow;
+}

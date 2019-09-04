@@ -1,0 +1,28 @@
+.articleContainer {
+  width: 100%;
+  min-height: 100px;
+  // background-color: greenyellow;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(63, 63, 63);
+  // background: red;
+  margin: 0;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.headerText {
+  color: rgb(153, 153, 153);
+  font: normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.contentText {
+  color: rgb(204, 204, 204);
+  font: normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+}
