@@ -50,7 +50,7 @@
   left: 5px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-
+  z-index: 2;
   @include box-shadow(-1px, -12px, 60px, -10px, rgba(84, 87, 92, 1), true);
 }
 
